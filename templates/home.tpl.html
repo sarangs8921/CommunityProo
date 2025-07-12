@@ -1,0 +1,190 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        window.scrollTo(0, 0);
+    });
+
+</script>
+
+<section class="">
+
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-danger">
+                <div class="panel-heading text-center" style="background-color: #f0a405">
+                    <p style="font-size: 18px; color:white; background-color: #f0a405"><b>Facility Bookings</b></p>
+                </div>
+
+                <div class="table-responsive" style="height: 40vh; overflow-y: scroll">
+                    <table class="table table-bordered ">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Facility Name</th>
+                                <th>Tenanat Name</th>
+                                <th>Flat No</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="book in FacilityBooking">
+                                <td>{{$index+1}}</td>
+                                <td>{{book.Facility.Name}}</td>
+                                <td>{{book.Tenant.Name}}</td>
+                                <td>{{book.Flat.FlatNo}}</td>
+                                <td>{{book.Date | date: 'dd/MM/yyyy'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-danger">
+                <div class="panel-heading text-center" style="background-color: #f0a405">
+                    <p style="font-size: 18px; color:white; background-color: #f0a405"><b>Service Bookings</b></p>
+                </div>
+
+                <div class="table-responsive" style="height: 40vh; overflow-y: scroll">
+                    <table class="table table-bordered ">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Service Name</th>
+                                <th>Type</th>
+                                <th>Tenanat Name</th>
+                                <th>Flat No</th>
+                                <th>Booking Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="book in ServiceBooking">
+                                <td>{{$index+1}}</td>
+                                <td>{{book.Service.Name}}</td>
+                                <td>{{book.Service.Category.Name}}</td>
+                                <td>{{book.Tenant.Name}}</td>
+                                <td>{{book.Flat.FlatNo}}</td>
+                                <td>{{book.Date | date : 'dd/MM/yyyy'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+
+
+        <div class="col-md-6">
+            <div class="panel panel-danger">
+                <div class="panel-heading text-center" style="background-color: #f0a405">
+                    <p style="font-size: 18px; color:white; background-color: #f0a405"><b>Visitor Bookings</b></p>
+                </div>
+
+                <div class="table-responsive" style="height: 40vh; overflow-y: scroll">
+                    <table class="table table-bordered ">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Mobile No</th>
+                                <th>Flat ID</th>
+                                <th>In Date</th>
+                                <th>Out Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="visitor in Visitors">
+                                <td>{{$index+1}}</td>
+                                <td>{{visitor.Name}}</td>
+                                <td>{{visitor.MobileNo}}</td>
+                                <td>{{visitor.Flat.FlatNo}}</td>
+                                <td>{{visitor.InDate | date : 'dd/MM/yyyy'}}</td>
+                                <td>{{visitor.OutDate | date : 'dd/MM/yyyy'}}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-danger">
+                <div class="panel-heading text-center" style="background-color: #f0a405">
+                    <p style="font-size: 18px; color:white; background-color: #f0a405"><b>Parking Bookings</b></p>
+                </div>
+
+                <div class="table-responsive" style="height: 40vh; overflow-y: scroll">
+                    <table class="table table-bordered ">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Slot ID</th>
+                                <th>Tenanat Name</th>
+                                <th>Flat No</th>
+                                <th>Booking Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="booking in Bookings">
+                                <td>{{$index+1}}</td>
+                                <td>{{booking.ParkingSlot.Name}}</td>
+                                <td>{{booking.Tenant.Name}}</td>
+                                <td>{{booking.Flat.FlatNo}}</td>
+                                <td>{{booking.Date | date : 'dd/MM/yyyy'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="panel panel-danger">
+                <div class="panel-heading text-center" style="background-color: #f0a405">
+                    <p style="font-size: 18px; color:white; background-color: #f0a405"><b>Latest Enquiries</b></p>
+                </div>
+
+                <div class="table-responsive" style="height: 40vh; overflow-y: scroll">
+                    <table class="table table-bordered ">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Tenant Name</th>
+                                <th>Flat Name</th>
+                                <th>Subject</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="e in Enquiries ">
+                                <td>{{$index+1}}</td>
+                                <td>{{e.Tenant.Name}}</td>
+                                <td>{{e.Flat.FlatNo}}</td>
+                                <td>{{e.Subject}}</td>
+                                <td>{{e.Description}}</td>
+                                <td>{{e.Date | date : 'dd/MM/yyyy'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</section>

@@ -1,0 +1,101 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        window.scrollTo(0, 0);
+    });
+
+</script>
+
+
+<section class="container">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Categories</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Name</label>
+                    <input placeholder="" class="form-control" ng-model="Category.Name">
+                </div>
+                <div class="col-md-4">
+                    <label>Upload Photo</label>
+                    <!--                    <input class="form-control" type="file" id="formFile" ng-model="Category.Photo" placeholder="Upload Photo">-->
+                    <input type="file" id="fileInput" custom-on-change="handleFileSelect" />
+                    <img ng-if="Category.Photo == ''" src="../img/img.png" class="w-30">
+                    <img ng-if="Category.Photo != ''" src="{{Category.Photo}} " class="w-30 ">
+                    <img ng-if="Category.Id > 0" src="{{basePath}}{{Category.Photo}} " class="w-30 ">
+                </div>
+                <br>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-success" ng-click="AddData()">
+                        <i class="fa fa-save"></i> Save
+                    </button>
+                    <button type="reset" class="btn btn-default " ng-click="Init()">
+                        <i class="fa fa-refresh"></i> Refresh
+                    </button>
+                </div>
+            </div>
+
+            <!--
+            <div class="row" style="padding-top: 20px;">
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-success" ng-click="AddData()">
+                        <i class="fa fa-save"></i> Save
+                    </button>
+                    <button type="reset" class="btn btn-default " ng-click="Init()">
+                        <i class="fa fa-refresh"></i> Refresh
+                    </button>
+                </div>
+            </div>
+-->
+
+            <hr>
+
+            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="cat in Categories">
+                        <td>{{$index+1}}</td>
+                        <td>
+                            <p>{{cat.Name}}</p>
+                        </td>
+                        <td>
+                            <!--                            <p>{{cat.Photo}}</p>-->
+
+                            <img ng-if='cat.Photo != null' style='border-radius:50px; height:50px; width:50px;' src='{{basePath}}{{cat.Photo}}'>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-sm fa fa-pencil" ng-click="Edit(cat)"></button>
+                            <button type="button" class="btn btn-danger btn-sm fa fa-trash" ng-click="DeleteAccType(cat)"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--    Creating Model for Delete-->
+
+    <div id="myModal2" class="modal fade modal-medium">
+        <div class="modal-dialog w-30 modalsmall">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:#2c9f1c;color:white;">
+                    <h4 class="modal-title">Confirm Delete </h4>
+                </div>
+                <div class="modal-body text-center">
+                    <h3> Confirm Proceed</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" ng-click="deleteWithConfirm()">Confirm </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,53 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        window.scrollTo(0, 0);
+    });
+
+</script>
+
+
+
+<section class="container">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Service Booking</div>
+        <div class="panel-body">
+            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Service Name</th>
+                        <th>Type</th>
+                        <th>Tenanat Name</th>
+                        <th>Flat No</th>
+                        <th>Service Date</th>
+                        <th>Service Time</th>
+                        <th>Booking Date</th>
+                        <th>Status</th>
+<!--                        <th>Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="book in ServiceBooking">
+                        <td>{{$index+1}}</td>
+                        <td>{{book.Service.Name}}</td>
+                        <td>{{book.Service.Category.Name}}</td>
+                        <td>{{book.Tenant.Name}}</td>
+                        <td>{{book.Flat.FlatNo}}</td>
+                        <td>{{book.ServiceDate | date : 'dd/MM/yyyy'}}</td>
+                        <td>{{book.ServiceTime}}</td>
+                        <td>{{book.Date | date : 'dd/MM/yyyy'}}</td>
+                        <td>{{book.Status}}</td>
+<!--
+                        <td>
+                            <button type="button" class="btn btn-success btn-sm">View</button>
+                            <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                        </td>
+-->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

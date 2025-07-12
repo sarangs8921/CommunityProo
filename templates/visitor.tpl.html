@@ -1,0 +1,93 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        window.scrollTo(0, 0);
+    });
+
+</script>
+
+<section class="container">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Visitors</div>
+        <div class="panel-body">
+            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Mobile No</th>
+                        <!--                        <th>Tenant ID</th>-->
+                        <th>Flat ID</th>
+                        <th>In Date</th>
+                        <th>Out Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="visitor in Visitors">
+                        <td>{{$index+1}}</td>
+                        <td>{{visitor.Name}}</td>
+                        <td>{{visitor.MobileNo}}</td>
+                        <!--                        <td>Tenant 123</td>-->
+                        <td>{{visitor.Flat.FlatNo}}</td>
+                        <td>{{visitor.InDate | date : 'dd/MM/yyyy'}}</td>
+                        <td>{{visitor.OutDate | date : 'dd/MM/yyyy'}}</td>
+                        <td>
+                            <button type="button" class="btn btn-success btn-sm fa fa-eye" ng-click="View(visitor)"></button>
+                            <!--                            <button type="button" class="btn btn-danger btn-sm">Delete</button>-->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--    View Modal-->
+
+    <div id="viewModal" class="modal fade modal-medium">
+        <div class="modal-dialog w-30 modalsmall">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:#84becf;color:white;">
+                    <h4 class="modal-title">Visitor Details</h4>
+
+
+
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5><b>Name</b> : {{VisitorView.Name}}</h5>
+
+                            <img ng-if='VisitorView.Photo != null' style='height:150px; width:200px; ' src=' {{basePath}}{{VisitorView.Photo}}'>
+                            <h5><b>Contact</b> : {{VisitorView.MobileNo}}</h5>
+                            <h5><b>Email</b> : {{VisitorView.Email}}</h5>
+                            <h5><b>Address</b> : {{VisitorView.Address}}</h5>
+                            <p><b>Tenant Name</b> : {{VisitorView.Tenant.Name}}</p>
+                            <p><b>Flat No</b> : {{VisitorView.Flat.FlatNo}}</p>
+                            <p><b>In Date</b> : {{VisitorView.InDate | date : 'dd/MM/yyyy'}}</p>
+                            <p><b>Out Date</b> : {{VisitorView.InDate | date : 'dd/MM/yyyy'}}</p>
+
+
+                        </div>
+                        <!--
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p><b>Tenant Name</b> : {{VisitorView.Tenant.Name}}</p>
+                                <p><b>Flat No</b> : {{MarketView.Flat.FlatNo}}</p>
+                                <p><b>Building</b> : {{VisitorView.Building.Name}}</p>
+                                <p><b>In Date</b> : {{VisitorView.InDate | date : 'dd/MM/yyyy'}}</p>
+                                <p><b>Out Date</b> : {{VisitorView.InDate | date : 'dd/MM/yyyy'}}</p>
+
+                            </div>
+
+                        </div>
+-->
+                        <br>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

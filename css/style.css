@@ -1,0 +1,62 @@
+.container123 {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    border: 1px solid rgb(244, 238, 238);
+    background-color: rgb(221, 207, 207);
+    margin: 0;
+}
+
+.div1 {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    border: 1px solid rgb(154, 151, 151);
+    background-color: rgb(173, 173, 173);
+    margin: 0;
+}
+
+.div12 {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    border: 1px solid red;
+    background-color: red;
+    margin: 0;
+}
+
+.loginbox {
+    -webkit-box-shadow: 3px 3px 5px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px 3px 5px -3px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 3px 5px -3px rgba(0, 0, 0, 0.75);
+    padding: 5%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.navbar-default {
+    background-color: #F0AD4E;
+    border-color: #F0AD4E;
+    border-radius: 0px;
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card {
+    border: 1px solid lightgrey;
+    padding: 2%;
+    margin: 1%;
+}
+
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
